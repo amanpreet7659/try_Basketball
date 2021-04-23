@@ -45,7 +45,7 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
                 seterr4(false)
                 if (players.lname !== "" && text.test(players.fname)) {
                     seterr2(false)
-                    if (players.height !== "" && regexp.test(players.height) && players.height > 162 && players.height < 305) {
+                    if (players.height !== "" && regexp.test(players.height) && players.height >= 162 && players.height < 305) {
                         seterr3(false)
                         if (players.position !== "") {
                             seterr4(false)
@@ -130,7 +130,7 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
             <lable className="label">(Position can be more then one)</lable>
             <br></br>
             <div>
-                <Button variant="contained" color="primary" disabled={final.length > 4} onClick={saveData}>Save</Button>
+                <Button variant="contained" color="primary" disabled={final.length > 10} onClick={saveData}>Save</Button>
             </div>
             <p className="last">After Entering player details please select First Quater (players can be 5 in a Team)</p>
             {show && <FirstQuater final={final} />}

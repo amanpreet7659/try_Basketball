@@ -67,12 +67,12 @@
   margin-top: 10px;
 }
 
-.Next {
+/* .Next {
   margin-right    : 65px !important;
   color           : #fff;
   background-color: #3f51b5;
   margin-top      : 15px !important;
-}
+} */
 
 .Select {
   width         : 100%;
@@ -154,7 +154,25 @@
   border-bottom : 2px red solid;
   border-right  : 1px gray solid;
 }
-.cong
-{
+
+.cong {
   color: green;
+}
+
+.Next {
+  margin-top      : 20px;
+  /* float        : right; */
+  background      : #5f5fe6;
+  border-radius   : 10px;
+  outline         : none;
+  border          : none;
+  padding         : 10px 20px;
+  font-size       : 16px;
+  cursor          : pointer;
+}
+
+.Next:hover {
+  background-color: greenyellow;
+  cursor          : pointer;
+
 }

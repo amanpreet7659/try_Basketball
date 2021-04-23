@@ -30,7 +30,7 @@ let border = {
 }
 
 export default function Navebar() {
-    const [propbtn, setpropbtn] = useState(false)
+    const [propbtn, setpropbtn] = useState(true)
     const classes = useStyles();
     let obj = {
         fname: "",

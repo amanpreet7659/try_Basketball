@@ -4,6 +4,8 @@ const First_Quater2 = ({ final }) => {
     const divStyle = {
         width: "50%"
     }
+    const [btns, setbtns] = useState(false)
+
     const [finalPlayer, setfinalPlayer] = useState({
         player1: "", player2: "", player3: "", player4: "", player5: "", position1: "", position2: "", position3: "", position4: "", position5: ""
     })
@@ -27,6 +29,8 @@ const First_Quater2 = ({ final }) => {
 
     // debugger
     let error1 = "", error2 = "", error3 = "", error4 = "", error5 = "", error6 = "", error7 = "", error8 = "", error9 = "", error10 = ""
+    let condition1 = error6 || error7 || error8 || error9 || error10
+    let condition = error1 || error2 || error3 || error4 || error5
     if (finalPlayer.player1) {
 
         error1 = finalPlayer.player1 == finalPlayer.player2 ||
@@ -133,10 +137,17 @@ const First_Quater2 = ({ final }) => {
     const handlePositionChange = (e) => {
         setfinalPlayer((old) => ({ ...old, [e.target.name]: e.target.value }))
     }
-    let condition1 = error6 || error7 || error8 || error9 || error10
-    let condition = error1 || error2 || error3 || error4 || error5
 
-    return (
+    const handleNext = () => {
+        if (!condition1 && !condition) {
+            alert("Enjoy Playing")
+        }
+    }
+    // if (!condition1 && !condition ) {
+    //     setbtns(false)
+    // }
+
+    return (<>
         <div className="Form">
             <div style={divStyle}>
                 <select name="player1" className={error1 ? "selError" : "sel"} onChange={handleNameChange1}>
@@ -186,6 +197,10 @@ const First_Quater2 = ({ final }) => {
                 {condition1 && <p className="error">[**Multiple players can't can play at Same Position]</p>}
             </div>
         </div>
+        <div style={{ width: "70px", margin: "auto" }}>
+            <button className="Next" onClick={handleNext} disabled={btns} >Next </button>
+        </div></>
+
     )
 }
 
