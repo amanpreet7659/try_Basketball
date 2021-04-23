@@ -174,5 +174,5 @@
 .Next:hover {
   background-color: greenyellow;
   cursor          : pointer;
-
+  /* text-decoration: underline; */
 }

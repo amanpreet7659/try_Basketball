@@ -29,8 +29,10 @@ const First_Quater2 = ({ final }) => {
 
     // debugger
     let error1 = "", error2 = "", error3 = "", error4 = "", error5 = "", error6 = "", error7 = "", error8 = "", error9 = "", error10 = ""
-    let condition1 = error6 || error7 || error8 || error9 || error10
-    let condition = error1 || error2 || error3 || error4 || error5
+    let condition1 = ""
+    condition1 = error6 || error7 || error8 || error9 || error10
+    let condition = ""
+    condition = error1 || error2 || error3 || error4 || error5
     if (finalPlayer.player1) {
 
         error1 = finalPlayer.player1 == finalPlayer.player2 ||
@@ -139,14 +141,10 @@ const First_Quater2 = ({ final }) => {
     }
 
     const handleNext = () => {
-        if (!condition1 && !condition) {
-            alert("Enjoy Playing")
-        }
+        console.log("Condition ", condition);
+        console.log("Condition1 ", condition1);
+        
     }
-    // if (!condition1 && !condition ) {
-    //     setbtns(false)
-    // }
-
     return (<>
         <div className="Form">
             <div style={divStyle}>
@@ -200,7 +198,6 @@ const First_Quater2 = ({ final }) => {
         <div style={{ width: "70px", margin: "auto" }}>
             <button className="Next" onClick={handleNext} disabled={btns} >Next </button>
         </div></>
-
     )
 }
 

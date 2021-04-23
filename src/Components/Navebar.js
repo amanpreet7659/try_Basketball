@@ -26,7 +26,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 let border = {
-    color: "red"
+    // color: "red",
+    textDecoration: "underline",
+    textDecorationColor:"yellowgreen"
+
 }
 
 export default function Navebar() {
