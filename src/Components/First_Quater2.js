@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 
 const First_Quater2 = ({ final }) => {
-    const [ferr, setferr] = useState(false)
-    const [serr, setserr] = useState(false)
-
-    console.log("Final Array from final quater is ", final);
     const divStyle = {
         width: "50%"
     }
@@ -94,24 +90,7 @@ const First_Quater2 = ({ final }) => {
             finalPlayer.position5 == finalPlayer.position4 ||
             finalPlayer.position5 == finalPlayer.position1
     }
-    // if (error1 == true || error2 == true || error3 == true || error4 == true || error5 == true) {
-    //     setferr(true)
-    // } else (setferr(false))
 
-    // if (error6 == true || error7 == true || error8 == true || error9 == true || error10 == true) {
-    //     setserr(true)
-    // } else { setserr(false) }
-    // debugger
-    console.log("Error1", error1);
-    console.log("Error2", error2);
-    console.log("Error3", error3);
-    console.log("Error4", error4);
-    console.log("Error5", error5);
-    console.log("Error6", error6);
-    console.log("Error7", error7);
-    console.log("Error8", error8);
-    console.log("Error9", error9);
-    console.log("Error10", error10);
     const handleNameChange1 = (e) => {
         console.log(e.target.value)
         const filter = final.findIndex((i) => { return (e.target.value.includes(i.fname) && e.target.value.includes(i.lname) && e.target.value.includes(i.id)) })
@@ -151,10 +130,12 @@ const First_Quater2 = ({ final }) => {
         setindex4(filter)
         setfinalPlayer((old) => ({ ...old, [e.target.name]: e.target.value }))
     }
-    console.log("setfinalPlayer((old)=>({...old,[e.target.name]:[e.target.value]}))", finalPlayer)
     const handlePositionChange = (e) => {
         setfinalPlayer((old) => ({ ...old, [e.target.name]: e.target.value }))
     }
+    let condition1 = error6 || error7 || error8 || error9 || error10
+    let condition = error1 || error2 || error3 || error4 || error5
+
     return (
         <div className="Form">
             <div style={divStyle}>
@@ -179,7 +160,7 @@ const First_Quater2 = ({ final }) => {
                     <option value="default" disabled hidden selected>Select Player</option>
                     {final.length > 0 ? final.map((i) => { return <option value={`${i.fname}${i.lname}${i.id}`}>{i.fname} {i.lname}</option> }) : null}
                 </select>
-                {ferr && <p className="error">[**Player Already Selected]</p>}
+                {condition ? <p className="error">[**Player Already Selected]</p> : null}
             </div>
             <div style={divStyle}>
                 <select name="position1" className={error6 ? "selError" : "sel"} onChange={handlePositionChange}>
@@ -202,7 +183,7 @@ const First_Quater2 = ({ final }) => {
                     <option value="Select Position" disabled hidden selected>Select Position</option>
                     {final.length > 0 ? final[index4].position.map((i) => { return <option>{i.value}</option> }) : null}
                 </select>
-                {serr && <p className="error">[**Multiple players can't can play at Same Position]</p>}
+                {condition1 && <p className="error">[**Multiple players can't can play at Same Position]</p>}
             </div>
         </div>
     )

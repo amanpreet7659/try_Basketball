@@ -19,6 +19,7 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
     const [show, etShow] = useState(false)
     const AnimatedComp = makeAnimated();
     const regexp = /^[0-9\b]+$/
+    const text = /^(?:[A-Za-z]+|\d+)$/
     const [err1, seterr1] = useState(false)
     const [err2, seterr2] = useState(false)
     const [err3, seterr3] = useState(false)
@@ -26,52 +27,52 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
     const [count, setCount] = useState(0)
     const saveData = (e) => {
         // debugger
-        // if (players.fname === "" && players.lname === "" && players.height === "" && players.position === "") {
-        //     seterr1(true)
-        //     seterr2(true)
-        //     seterr3(true)
-        //     seterr4(true)
-        // }
-        // else {
-        //     seterr1(false)
-        //     seterr2(false)
-        //     seterr3(false)
-        //     seterr4(false)
-        //     if (players.fname !== "") {
-        //         seterr1(false)
-        //         seterr2(false)
-        //         seterr3(false)
-        //         seterr4(false)
-        //         if (players.lname !== "") {
-        //             seterr2(false)
-        //             if (players.height !== "" && regexp.test(players.height) && players.height > 162 && players.height < 305) {
-        //                 seterr3(false)
-        //                 if (players.position !== "") {
-        //                     seterr4(false)
-        e.preventDefault();
-        players["id"] = count
-        setFinal(oldarr => [...oldarr, players]);
-        localStorage.setItem('final', JSON.stringify(final));
-        setplayers(obj)
-        setCount(count + 1)
-        // debugger
-        //                     if (final.length == 4) {
-        //                         setpropbtn(false)
-        //                         console.log("if (final.length == 5) {setpropbtn(false)} ", propbtn);
-        //                     }
-        //                 } else {
-        //                     seterr4(pre => !pre)
-        //                 }
-        //             } else {
-        //                 seterr3(pre => !pre)
-        //             }
-        //         } else {
-        //             seterr2(pre => !pre)
-        //         }
-        //     } else {
-        //         seterr1(pre => !pre)
-        //     }
-        // }
+        if (players.fname === "" && players.lname === "" && players.height === "" && players.position === "") {
+            seterr1(true)
+            seterr2(true)
+            seterr3(true)
+            seterr4(true)
+        }
+        else {
+            seterr1(false)
+            seterr2(false)
+            seterr3(false)
+            seterr4(false)
+            if (players.fname !== "" && text.test(players.fname)) {
+                seterr1(false)
+                seterr2(false)
+                seterr3(false)
+                seterr4(false)
+                if (players.lname !== "" && text.test(players.fname)) {
+                    seterr2(false)
+                    if (players.height !== "" && regexp.test(players.height) && players.height > 162 && players.height < 305) {
+                        seterr3(false)
+                        if (players.position !== "") {
+                            seterr4(false)
+                            e.preventDefault();
+                            players["id"] = count
+                            setFinal(oldarr => [...oldarr, players]);
+                            localStorage.setItem('final', JSON.stringify(final));
+                            setplayers(obj)
+                            setCount(count + 1)
+                            // debugger
+                            if (final.length == 4) {
+                                setpropbtn(false)
+                                console.log("if (final.length == 5) {setpropbtn(false)} ", propbtn);
+                            }
+                        } else {
+                            seterr4(pre => !pre)
+                        }
+                    } else {
+                        seterr3(pre => !pre)
+                    }
+                } else {
+                    seterr2(pre => !pre)
+                }
+            } else {
+                seterr1(pre => !pre)
+            }
+        }
     }
     const options = [
         { value: "Point Guard (PG)", label: "Point Guard (PG)" },
@@ -80,73 +81,6 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
         { value: "Power Forward (PF)", label: "Power Forward (PF)" },
         { value: "Center (C)", label: "Center (C)" },
     ]
-
-    const finalarr = [
-        {
-            fname: "Amanpreet",
-            lname: "Singh",
-            height: "172",
-            id: 1,
-            position:
-                [
-                    {
-                        value: "Small Forward (SF)",
-                        label: "Small Forward (SF)"
-                    },
-                    {
-                        value: "Shooting Guard (SG)",
-                        label: "Shooting Guard (SG)"
-                    },
-                    {
-                        value: "Power Forward (PF)",
-                        label: "Power Forward (PF)"
-                    }
-                ]
-        },
-        {
-            fname: "Player",
-            height: "179",
-            id: 2,
-            lname: "1",
-            position:
-                [
-                    {
-                        value: "Power Forward (PF)",
-                        label: "Power Forward (PF)"
-                    },
-                    {
-                        value: "Shooting Guard (SG)",
-                        label: "Shooting Guard (SG)"
-                    },
-                    {
-                        value: "Center (C)",
-                        label: "Center (C)"
-                    },
-                ]
-        },
-        {
-            fname: "Amanpreet",
-            lname: "Singh",
-            height: "172",
-            id: 3,
-            position:
-                [
-                    {
-                        value: "Power Forward (PF)",
-                        label: "Power Forward (PF)"
-                    },
-                    {
-                        value: "Shooting Guard (SG)",
-                        label: "Shooting Guard (SG)"
-                    },
-                    {
-                        value: "Center (C)",
-                        label: "Center (C)"
-                    },
-                ]
-        }
-    ]
-    console.log("Players", players);
 
     const handleChange = (e) => {
         setplayers((prestate) => ({
@@ -160,19 +94,17 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
         players.position = e
         setfPos(e)
     }
-    // console.log('Position', fPos);
-    console.log('final', final);
     return (
         <div className="cTeam">
             <TextField className="standard-basic" onChange={handleChange} value={players.fname} name="fname" id="standard-basic" label="First Name" />
             <br></br>
             <br></br>
-            {err1 ? <lable className="error">[**First Name Required**]</lable> : null}
+            {err1 ? <lable className="error">[**First Name Required (Text Only)**]</lable> : null}
             <br></br>
             <TextField className="standard-basic" onChange={handleChange} value={players.lname} name="lname" id="standard-basic" label="Last Name" />
             <br></br>
             <br></br>
-            {err2 && <lable className="error">[**Last Name Required**]</lable>}
+            {err2 && <lable className="error">[**Last Name Required (Text only)**]</lable>}
             <br></br>
             <TextField onChange={handleChange} className="standard-basic" value={players.height} name="height" id="standard-basic" label="Height (cm)" />
             <br></br>
@@ -180,7 +112,6 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
             {err3 && <lable className="error">[**Height is Required (A Valid Number and Greater ther 162cm and Less then 305cm)**]</lable>}
             <br></br>
             <FormControl className={classes.formControl}>
-                {/* <InputLabel id="demo-simple-select-label">Position</InputLabel> */}
                 <Select
                     name="position"
                     labelId="demo-simple-select-label"
@@ -193,7 +124,7 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
                 />
                 {err4 && <lable className="error">[**Position is Required**]</lable>}
                 <br></br>
-                {final.length > 0 && <lable>Congrats {final.length} Playes has been added</lable>}
+                {final.length > 0 && <lable className="cong">!Congrats {final.length} Playes has been added</lable>}
             </FormControl>
             <br></br>
             <lable className="label">(Position can be more then one)</lable>
@@ -202,7 +133,7 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
                 <Button variant="contained" color="primary" disabled={final.length > 4} onClick={saveData}>Save</Button>
             </div>
             <p className="last">After Entering player details please select First Quater (players can be 5 in a Team)</p>
-            {show && <FirstQuater final={finalarr} />}
+            {show && <FirstQuater final={final} />}
         </div>
     )
 }

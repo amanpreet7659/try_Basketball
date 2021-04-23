@@ -39,90 +39,6 @@ export default function Navebar() {
         position: ""
     };
 
-    const finalarr = [
-        {
-            fname: "Amanpreet",
-            lname: "Singh",
-            height: "172",
-            id: 1,
-            position:
-                [
-                    {
-                        value: "Small Forward (SF)",
-                        label: "Small Forward (SF)"
-                    },
-                    {
-                        value: "Shooting Guard (SG)",
-                        label: "Shooting Guard (SG)"
-                    },
-                ]
-        },
-        {
-            fname: "Player",
-            height: "179",
-            id: 2,
-            lname: "1",
-            position:
-                [
-                    {
-                        value: "Power Forward (PF)",
-                        label: "Power Forward (PF)"
-                    },
-                    {
-                        value: "Shooting Guard (SG)",
-                        label: "Shooting Guard (SG)"
-                    },
-                ]
-        },
-        {
-            fname: "Amanpreet",
-            lname: "Singh",
-            height: "172",
-            id: 3,
-            position:
-                [
-                    {
-                        value: "Center (C)",
-                        label: "Center (C)"
-                    },
-                    {
-                        value: "Shooting Guard (SG)",
-                        label: "Shooting Guard (SG)"
-                    },
-                ]
-        },
-        {
-            fname: "Amanpreet",
-            lname: "Singh",
-            height: "172",
-            id: 4,
-            position:
-                [
-                    {
-                        value: "Point Guard (PG)",
-                        label: "Point Guard (PG)"
-                    },
-                    {
-                        value: "Shooting Guard (SG)",
-                        label: "Shooting Guard (SG)"
-                    },
-                ]
-        },
-        {
-            fname: "Amanpreet",
-            lname: "Singh",
-            height: "172",
-            id: 5,
-            position:
-                [
-                    {
-                        value: "Shooting Guard (SG)",
-                        label: "Shooting Guard (SG)"
-                    },
-                ]
-        }
-    ]
-
     const [players, setplayers] = useState({
         fname: "",
         lname: "",
@@ -157,7 +73,7 @@ export default function Navebar() {
             <br></br>
             <br></br>
             { show && <ComposeTeam setpropbtn={setpropbtn} propbtn={propbtn} obj={obj} players={players} setplayers={setplayers} final={final} setFinal={setFinal} fPos={fPos} setfPos={setfPos} />}
-            {!show && <First_Quater2 final={finalarr} />}
+            {!show && <First_Quater2 final={final} />}
         </div>
     );
 }
