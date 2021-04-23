@@ -108,8 +108,8 @@ const FirstQuater = (props) => {
 
     console.log("Props ", props);
     const handleChange = (e) => {
-        let temp = e.target.value.split(" ")[0]
-        console.log("Temp ", temp);
+        // let temp = e.target.value.split(" ")[0]
+        // console.log("Temp ", temp);
         setArr((old) => ({ ...old, [e.target.name]: e.target.value }))
         console.log("Arr ", arr);
 
@@ -119,8 +119,8 @@ const FirstQuater = (props) => {
     }
 
     const handleChange1 = (e) => {
-        let temp = e.target.value.split(" ")[0]
-        console.log("Temp ", temp);
+        // let temp = e.target.value.split(" ")[0]
+        // console.log("Temp ", temp);
         setArr((old) => ({ ...old, [e.target.name]: e.target.value }))
         console.log("Arr ", arr);
 
@@ -129,8 +129,8 @@ const FirstQuater = (props) => {
         setUniindex2(filter)
     }
     const handleChange2 = (e) => {
-        let temp = e.target.value.split(" ")[0]
-        console.log("Temp ", temp);
+        // let temp = e.target.value.split(" ")[0]
+        // console.log("Temp ", temp);
         setArr((old) => ({ ...old, [e.target.name]: e.target.value }))
         console.log("Arr ", arr);
 
@@ -139,8 +139,8 @@ const FirstQuater = (props) => {
         setUniindex3(filter)
     }
     const handleChange3 = (e) => {
-        let temp = e.target.value.split(" ")[0]
-        console.log("Temp ", temp);
+        // let temp = e.target.value.split(" ")[0]
+        // console.log("Temp ", temp);
         setArr((old) => ({ ...old, [e.target.name]: e.target.value }))
         console.log("Arr ", arr);
 
@@ -149,8 +149,8 @@ const FirstQuater = (props) => {
         setUniindex4(filter)
     }
     const handleChange4 = (e) => {
-        let temp = e.target.value.split(" ")[0]
-        console.log("Temp ", temp);
+        // let temp = e.target.value.split(" ")[0]
+        // console.log("Temp ", temp);
         setArr((old) => ({ ...old, [e.target.name]: e.target.value }))
         console.log("Arr ", arr);
 
@@ -167,24 +167,24 @@ const FirstQuater = (props) => {
             <div className="Form">
                 <div style={{ width: "50%" }}>
                     <select name="n1" className="sel" style={styles} onChange={handleChange} >
-                        <option value="Select..." disabled hidden selected>Select...</option>
-                        {props.final.map((i, j) => { return <option>{i.fname + i.lname}</option> })}
+                        <option value="Select..." disabled hidden selected>Select Player</option>
+                        {props.final.length > 0 ? props.final.map((i, j) => { return <option>{i.fname + i.lname}</option> }) : null}
                     </select>
                     <select name="n2" className="sel" style={styles} onChange={handleChange1} >
                         <option value="Select..." disabled hidden selected>Select...</option>
-                        {props.final.map((i) => { return <option>{i.fname + i.lname}</option> })}
+                        {props.final.length > 0 ? props.final.map((i) => { return <option>{i.fname + i.lname}</option> }) : null}
                     </select>
                     <select name="n3" className="sel" style={styles} onChange={handleChange2} >
                         <option value="Select..." disabled hidden selected>Select...</option>
-                        {props.final.map((i) => { return <option>{i.fname + i.lname}</option> })}
+                        {props.final.length > 0 ? props.final.map((i) => { return <option>{i.fname + i.lname}</option> }) : null}
                     </select>
                     <select name="n4" className="sel" style={styles} onChange={handleChange3} >
                         <option value="Select..." disabled hidden selected>Select...</option>
-                        {props.final.map((i) => { return <option>{i.fname + i.lname}</option> })}
+                        {props.final.length > 0 ? props.final.map((i) => { return <option>{i.fname + i.lname}</option> }) : null}
                     </select>
                     <select name="n5" className="sel" style={styles} onChange={handleChange4} >
                         <option value="Select..." disabled hidden selected>Select...</option>
-                        {props.final.map((i) => { return <option>{i.fname + i.lname}</option> })}
+                        {props.final.length > 0 ? props.final.map((i) => { return <option>{i.fname + i.lname}</option> }) : null}
                     </select>
                     {console.log("props.final", props.final)}
                 </div>
@@ -194,22 +194,23 @@ const FirstQuater = (props) => {
                 <div style={{ borderLeft: "2px black solid", width: "50%" }}>
                     <select name="p1" className="sel" style={styles} onChange={handleChange1} >
                         <option value="Select..." selected disabled hidden>Select...</option>
-                        {props.final[uniindex1].position.map((i) => { return <option>{i.value}</option> })}
+                        {props.final.length > 0 ? props.final[uniindex1].position.map((i) => { return <option>{i.value}</option> }) : null}
                     </select>
                     <select name="p2" className="sel" style={styles} onChange={handleChange1} >
                         <option value="Select..." selected disabled hidden>Select...</option>
-                        {props.final[uniindex2].position.map((i) => { return <option>{i.value}</option> })}
+                        {props.final.length > 0 ? props.final[uniindex2].position.map((i) => { return <option>{i.value}</option> }) : null}
                     </select>
                     <select name="p3" className="sel" style={styles} onChange={handleChange1} >
                         <option value="Select..." selected disabled hidden>Select...</option>
-                        {props.final[uniindex3].position.map((i) => { return <option>{i.value}</option> })}                    </select>
+                        {props.final.length > 0 ? props.final[uniindex3].position.map((i) => { return <option>{i.value}</option> }) : null}
+                    </select>
                     <select name="p4" className="sel" style={styles} onChange={handleChange1} >
                         <option value="Select..." selected disabled hidden>Select...</option>
-                        {props.final[uniindex4].position.map((i) => { return <option>{i.value}</option> })}
+                        {props.final.length > 0 ? props.final[uniindex4].position.map((i) => { return <option>{i.value}</option> }) : null}
                     </select>
                     <select name="p5" className="sel" style={styles} onChange={handleChange1} >
                         <option value="Select..." selected disabled hidden>Select...</option>
-                        {props.final[uniindex5].position.map((i) => { return <option>{i.value}</option> })}
+                        {props.final.length > 0 ? props.final[uniindex5].position.map((i) => { return <option>{i.value}</option> }) : null}
                     </select>
                 </div>
             </div>

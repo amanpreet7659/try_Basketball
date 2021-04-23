@@ -23,7 +23,7 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
     const [err2, seterr2] = useState(false)
     const [err3, seterr3] = useState(false)
     const [err4, seterr4] = useState(false)
-    const [count,setCount]=useState(1)
+    const [count, setCount] = useState(0)
     const saveData = (e) => {
         // debugger
         // if (players.fname === "" && players.lname === "" && players.height === "" && players.position === "") {
@@ -48,13 +48,13 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
         //                 seterr3(false)
         //                 if (players.position !== "") {
         //                     seterr4(false)
-                            e.preventDefault();
-                            players["id"]=count
-                            setFinal(oldarr => [...oldarr, players]);
-                            localStorage.setItem('final', JSON.stringify(final));
-                            setplayers(obj)
-                            setCount(count+1)
-                            // debugger
+        e.preventDefault();
+        players["id"] = count
+        setFinal(oldarr => [...oldarr, players]);
+        localStorage.setItem('final', JSON.stringify(final));
+        setplayers(obj)
+        setCount(count + 1)
+        // debugger
         //                     if (final.length == 4) {
         //                         setpropbtn(false)
         //                         console.log("if (final.length == 5) {setpropbtn(false)} ", propbtn);
@@ -79,6 +79,72 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
         { value: "Small Forward (SF)", label: "Small Forward (SF)" },
         { value: "Power Forward (PF)", label: "Power Forward (PF)" },
         { value: "Center (C)", label: "Center (C)" },
+    ]
+
+    const finalarr = [
+        {
+            fname: "Amanpreet",
+            lname: "Singh",
+            height: "172",
+            id: 1,
+            position:
+                [
+                    {
+                        value: "Small Forward (SF)",
+                        label: "Small Forward (SF)"
+                    },
+                    {
+                        value: "Shooting Guard (SG)",
+                        label: "Shooting Guard (SG)"
+                    },
+                    {
+                        value: "Power Forward (PF)",
+                        label: "Power Forward (PF)"
+                    }
+                ]
+        },
+        {
+            fname: "Player",
+            height: "179",
+            id: 2,
+            lname: "1",
+            position:
+                [
+                    {
+                        value: "Power Forward (PF)",
+                        label: "Power Forward (PF)"
+                    },
+                    {
+                        value: "Shooting Guard (SG)",
+                        label: "Shooting Guard (SG)"
+                    },
+                    {
+                        value: "Center (C)",
+                        label: "Center (C)"
+                    },
+                ]
+        },
+        {
+            fname: "Amanpreet",
+            lname: "Singh",
+            height: "172",
+            id: 3,
+            position:
+                [
+                    {
+                        value: "Power Forward (PF)",
+                        label: "Power Forward (PF)"
+                    },
+                    {
+                        value: "Shooting Guard (SG)",
+                        label: "Shooting Guard (SG)"
+                    },
+                    {
+                        value: "Center (C)",
+                        label: "Center (C)"
+                    },
+                ]
+        }
     ]
     console.log("Players", players);
 
@@ -136,7 +202,7 @@ const ComposeTeam = ({ setFinal, players, final, obj, setplayers, setfPos, setpr
                 <Button variant="contained" color="primary" disabled={final.length > 4} onClick={saveData}>Save</Button>
             </div>
             <p className="last">After Entering player details please select First Quater (players can be 5 in a Team)</p>
-            {show && <FirstQuater final={final} />}
+            {show && <FirstQuater final={finalarr} />}
         </div>
     )
 }

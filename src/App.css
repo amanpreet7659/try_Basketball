@@ -56,7 +56,7 @@
   margin            : auto;
   border            : 1px gray solid;
   /* grid-column-gap: 10px; */
-  font-family: 'Times New Roman', Times, serif;
+  font-family       : 'Times New Roman', Times, serif;
 }
 
 .First_Quater {
@@ -94,9 +94,10 @@
 
 .error {
   margin-top    : 10px;
-  font-size     : 1rem;
+  font-size     : 14px;
   letter-spacing: .5px;
   color         : red;
+  float         : left;
 }
 
 .sel:hover {
@@ -107,22 +108,49 @@
 }
 
 .cTeam {
-  border: 1px gray solid;
-  width : 40%;
-  margin: auto;
+  border     : 1px gray solid;
+  width      : 40%;
+  margin     : auto;
   font-family: 'Times New Roman', Times, serif;
 }
 
 .standard-basic {
-  width   : 100%;
-  overflow: hidden;
+  width      : 100%;
+  overflow   : hidden;
   font-family: 'Times New Roman', Times, serif !important;
 }
 
 .last {
-  color      : gray;
+  color         : gray;
   /* font-family: time; */
 }
-.body{
+
+.body {
   font-family: 'Times New Roman', Times, serif;
+}
+
+.sel {
+  width         : 100%;
+  height        : 48px;
+  font-weight   : 400;
+  line-height   : 1.1876em;
+  font-size     : 1rem;
+  letter-spacing: 0.00938em;
+  border        : none;
+  background    : #fff;
+  border-bottom : 1px gray solid;
+  border-right  : 1px gray solid;
+}
+
+.selError {
+  width         : 100%;
+  height        : 48px;
+  font-weight   : 400;
+  line-height   : 1.1876em;
+  font-size     : 1rem;
+  letter-spacing: 0.00938em;
+  border        : none;
+  background    : #fff;
+  border-bottom : 2px red solid;
+  border-right  : 1px gray solid;
 }

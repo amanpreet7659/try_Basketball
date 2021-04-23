@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ComposeTeam from './ComposeTeam';
 import { BorderBottom } from '@material-ui/icons';
 import FirstQuater from './FirstQuater';
+import First_Quater2 from './First_Quater2';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -37,6 +38,91 @@ export default function Navebar() {
         height: "",
         position: ""
     };
+
+    const finalarr = [
+        {
+            fname: "Amanpreet",
+            lname: "Singh",
+            height: "172",
+            id: 1,
+            position:
+                [
+                    {
+                        value: "Small Forward (SF)",
+                        label: "Small Forward (SF)"
+                    },
+                    {
+                        value: "Shooting Guard (SG)",
+                        label: "Shooting Guard (SG)"
+                    },
+                ]
+        },
+        {
+            fname: "Player",
+            height: "179",
+            id: 2,
+            lname: "1",
+            position:
+                [
+                    {
+                        value: "Power Forward (PF)",
+                        label: "Power Forward (PF)"
+                    },
+                    {
+                        value: "Shooting Guard (SG)",
+                        label: "Shooting Guard (SG)"
+                    },
+                ]
+        },
+        {
+            fname: "Amanpreet",
+            lname: "Singh",
+            height: "172",
+            id: 3,
+            position:
+                [
+                    {
+                        value: "Center (C)",
+                        label: "Center (C)"
+                    },
+                    {
+                        value: "Shooting Guard (SG)",
+                        label: "Shooting Guard (SG)"
+                    },
+                ]
+        },
+        {
+            fname: "Amanpreet",
+            lname: "Singh",
+            height: "172",
+            id: 4,
+            position:
+                [
+                    {
+                        value: "Point Guard (PG)",
+                        label: "Point Guard (PG)"
+                    },
+                    {
+                        value: "Shooting Guard (SG)",
+                        label: "Shooting Guard (SG)"
+                    },
+                ]
+        },
+        {
+            fname: "Amanpreet",
+            lname: "Singh",
+            height: "172",
+            id: 5,
+            position:
+                [
+                    {
+                        value: "Shooting Guard (SG)",
+                        label: "Shooting Guard (SG)"
+                    },
+                ]
+        }
+    ]
+
     const [players, setplayers] = useState({
         fname: "",
         lname: "",
@@ -51,14 +137,13 @@ export default function Navebar() {
 
     const handleChange = (e) => {
         e.preventDefault();
-        if(final.length>0)
-        {
-            setShow(pre=>!pre)
+        if (final.length > 0) {
+            setShow(pre => !pre)
         }
     }
     const handleChange1 = (e) => {
         e.preventDefault()
-        setShow(pre=>!pre)
+        setShow(pre => !pre)
     }
     return (
         <div className={classes.root}>
@@ -72,7 +157,7 @@ export default function Navebar() {
             <br></br>
             <br></br>
             { show && <ComposeTeam setpropbtn={setpropbtn} propbtn={propbtn} obj={obj} players={players} setplayers={setplayers} final={final} setFinal={setFinal} fPos={fPos} setfPos={setfPos} />}
-            {!show && <FirstQuater final={final} />}
+            {!show && <First_Quater2 final={finalarr} />}
         </div>
     );
 }
